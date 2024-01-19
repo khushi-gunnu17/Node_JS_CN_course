@@ -1,0 +1,7 @@
+{
+    "type": "module",
+    "scripts": {
+      "start": "node your_entry_file.js"
+    }
+  }
+  
