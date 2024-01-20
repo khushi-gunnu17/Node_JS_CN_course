@@ -6,6 +6,7 @@ const server = express()
 // first one
 // server.get("/", (req, res, next) => {
 //     // res.send("This is from first middleware.")
+//     // Cannot send headers after when they are sent to the client with next()
 //     console.log("First middleware hit.");
 //     next()
 // }, 
