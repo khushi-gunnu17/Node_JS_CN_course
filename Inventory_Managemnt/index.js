@@ -2,6 +2,7 @@
 import express from 'express'
 import path from "path"
 import productsController from './src/controllers/product.controller'
+import ejsLayouts from 'express-ejs-layouts'
 
 const server = express()
 
@@ -10,11 +11,16 @@ server.set("view engine", "ejs")
 // pat of our views folder
 server.set("views", path.join(path.resolve(), "src", "views"))     
 
+
+server.use(ejsLayouts)
+
+
 // create an instance of productController
 const productcontroller = new productsController()
 
 server.get("/", productcontroller.getProducts())
 
-server.use(express.static('src/views'))
 
-server.listen(3400)
+server.listen(3400, () => {
+    console.log('Server is running on the port 3000.');
+})

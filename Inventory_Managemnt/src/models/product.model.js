@@ -8,6 +8,7 @@ export default class ProductModel {
         this.imageURL = _imageURL
     }
 
+    // static methods do not use arrow functions
     // static methods are those methods which you do not need to initiate, you can directly call them using class names. 
     static get() {
         return products;
