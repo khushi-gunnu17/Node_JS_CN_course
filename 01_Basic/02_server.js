@@ -24,10 +24,11 @@ const server = http.createServer((req, res) => {
 
     // logging
 })
+
+
+
+
 // acting as a listener 
-
-
-
 // 3. also specify a port number to listen to the client request.
 
 server.listen(3100, () => {
