@@ -1,13 +1,13 @@
 import path from "path"
-import ProductModel from "../models/product.model"
+import ProductModel from "../models/product.model.js"
 
 export default class productsController {
 
     // return the HTML file which we have in views folder
     getProducts(req, res) {
 
-        let products = ProductModel.get()
-        console.log(products);
+        const products = ProductModel.get()
+        // console.log(products);
 
         res.render("index", {products:products})
 
