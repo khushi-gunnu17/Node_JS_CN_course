@@ -1,7 +1,7 @@
 import path from "path"
 import ProductModel from "../models/product.model"
 
-export default class productController {
+export default class productsController {
 
     // return the HTML file which we have in views folder
     getProducts(req, res) {
@@ -9,8 +9,10 @@ export default class productController {
         let products = ProductModel.get()
         console.log(products);
 
-        return res.sendFile(
-            path.join(path.resolve(), "src", "views", "product.html")
-        )
+        res.render("index", {products:products})
+
+        // return res.sendFile(
+        //     path.join(path.resolve(), "src", "views", "product.html")
+        // )
     }
 }
