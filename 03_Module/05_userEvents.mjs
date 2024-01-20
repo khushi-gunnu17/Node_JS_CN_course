@@ -1,5 +1,7 @@
 // const EventEmitter = require("events")
-import EventEmitter from "events"       // importing a class and not everything from the module.
+// custom events 
+
+import EventEmitter from "events"       // importing a class and not everything from the module events.
 
 // class user
 export class UserEvents extends EventEmitter {
