@@ -1,0 +1,49 @@
+<!-- createBlog.ejs -->
+
+<style>
+    h1 {
+      text-align: center;
+    }
+  
+    form {
+      max-width: 400px;
+      margin: 0 auto;
+    }
+  
+    label {
+      display: block;
+      margin-bottom: 8px;
+    }
+  
+    input,
+    textarea {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 16px;
+      box-sizing: border-box;
+    }
+  
+    button {
+      background-color: #007bff;
+      color: #fff;
+      padding: 10px;
+      border: none;
+      cursor: pointer;
+      width: 100%;
+    }
+</style>
+
+<h1>Create a Blog</h1>
+<form action="/createBlog" method="post">
+
+    <label for="blogTitle">Blog Title : </label>
+    <input type="text" id="blogTitle" name="blogTitle" required>
+
+    <label for="blogDescription">Blog Description : </label>
+    <textarea id="blogDescription" name="blogDescription" rows="4" required></textarea>
+
+    <label for="blogImageURL">Blog Image URL : </label>
+    <input type="text" id="blogImageURL" name="blogImageURL" required>
+
+    <button type="submit">Submit</button>
+</form>
