@@ -3,9 +3,9 @@ import express from 'express'
 import path from "path"
 import productsController from './src/controllers/product.controller.js'
 import ejsLayouts from 'express-ejs-layouts'
+import { validateRequest } from './src/middlewares/validation.middleware.js'
 
 const server = express()
-
 
 
 // parse form data
@@ -28,7 +28,7 @@ const productcontroller = new productsController()
 
 server.get("/", productcontroller.getProducts.bind(productcontroller))
 server.get("/new", productcontroller.getAddForm)
-server.post("/", productcontroller.addNewProduct)
+server.post("/", validateRequest, productcontroller.addNewProduct)
 
 server.listen(3400, () => {
     console.log('Server is running on the port 3400.');
