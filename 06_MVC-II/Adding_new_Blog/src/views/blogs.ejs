@@ -1,0 +1,33 @@
+<!-- Write your code here -->
+
+<style>
+    /* Style for the blog boxes */
+    .blog-box {
+      border: 1px solid #ddd;
+      padding: 10px;
+      margin: 10px;
+      width: 45%; /* Set the width to create a two-column layout */
+      display: inline-block;
+      vertical-align: top;
+      box-sizing: border-box;
+    }
+  
+    /* Responsive layout adjustments */
+    @media (max-width: 768px) {
+      .blog-box {
+        width: 100%; /* Change to full width on smaller screens */
+      }
+    }
+  </style>
+  
+  <h1>All Blogs</h1>
+  <div>
+    <% blogs.forEach(blog => { %>
+      <div class="blog-box">
+        <h2><%= blog.title %></h2>
+        <p><%= blog.description %></p>
+        <img src="<%= blog.img %>" alt="<%= blog.title %>" style="max-width: 100%; height: auto;"/>
+      </div>
+    <% }); %>
+  </div>
+  

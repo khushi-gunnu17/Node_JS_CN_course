@@ -6,6 +6,8 @@ import ejsLayouts from 'express-ejs-layouts'
 
 const server = express()
 
+
+
 // parse form data
 server.use(express.urlencoded({extended: true}))
 
@@ -15,10 +17,14 @@ server.set("view engine", "ejs")
 server.set("views", path.join(path.resolve(), "Inventory_Managemnt", "src", "views"))     
 
 
+
+
 server.use(ejsLayouts)
 
 // create an instance of productController
 const productcontroller = new productsController()
+
+
 
 server.get("/", productcontroller.getProducts.bind(productcontroller))
 server.get("/new", productcontroller.getAddForm)
