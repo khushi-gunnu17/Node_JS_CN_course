@@ -1,11 +1,11 @@
 
 export default class ProductModel {
-    constructor(_id, _name, _desc, _price, _imageURL) {
+    constructor(_id, _name, _desc, _price, _imageUrl) {
         this.id = _id
         this.name = _name
         this.desc = _desc
         this.price = _price
-        this.imageURL = _imageURL
+        this.imageUrl = _imageUrl
     }
 
     // static methods do not use arrow functions
@@ -14,13 +14,18 @@ export default class ProductModel {
         return products;
     }
 
+    static update(productObj) {
+        const index = products.findIndex((p) => p.id == productObj.id)
+        products[index] = productObj;
+    }
+
     static add(productObj) {
         let newProduct = new ProductModel(
             products.length + 1,
             productObj.name, 
             productObj.desc, 
             productObj.price, 
-            productObj.imageURL
+            productObj.imageUrl
         )
         products.push(newProduct)
     }
@@ -28,6 +33,8 @@ export default class ProductModel {
     static getById(id) {
         return products.find((p) => p.id == id)
     }
+
+   
 }
 
 var products = [
