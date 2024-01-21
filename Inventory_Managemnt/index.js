@@ -30,9 +30,12 @@ server.get("/", productcontroller.getProducts.bind(productcontroller))
 server.get("/new", productcontroller.getAddForm)
 // URL parameters => id
 server.get("/update-product/:id", productcontroller.getUpdateProductView)
+server.get("/delete-product/:id", productcontroller.deleteProduct)
 server.post("/", validateRequest, productcontroller.addNewProduct)
 // this one down below to get the updated data
 server.post("/update-product", productcontroller.postUpdateProduct)
+
+
 
 server.listen(3400, () => {
     console.log('Server is running on the port 3400.');
