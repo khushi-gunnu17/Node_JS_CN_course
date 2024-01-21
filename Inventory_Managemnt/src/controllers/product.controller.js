@@ -16,6 +16,7 @@ export default class productsController {
         // )
     }
 
+
     getAddForm(req, res, next) {
         return res.render("new-product", {errorMessage:null})       // data field not necessary here, it is an optional field also  
     }
@@ -28,5 +29,20 @@ export default class productsController {
         ProductModel.add(req.body)
         let products = ProductModel.get()
         return res.render("index", {products})
+    }
+
+
+    getUpdateProductView(req, res, next) {
+        // 1. If product exists, then return view.
+        const id = req.params.id    // object which allows you to acces the URL parameters
+        const productFound = ProductModel.getById(id)
+        if(productFound) {
+            res.render("update-product", {product: productFound, errorMessage: null});
+        }
+
+        // 2. else return errors.
+        else {
+            res.status(401).send('Product Not Found.')
+        }
     }
 }

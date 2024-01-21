@@ -22,12 +22,14 @@ server.set("views", path.join(path.resolve(), "Inventory_Managemnt", "src", "vie
 server.use(ejsLayouts)
 
 // create an instance of productController
-const productcontroller = new productsController()
+const productcontroller = new productsController() 
 
 
 
 server.get("/", productcontroller.getProducts.bind(productcontroller))
 server.get("/new", productcontroller.getAddForm)
+// URL parameters => id
+server.get("/update-product/:id", productcontroller.getUpdateProductView)
 server.post("/", validateRequest, productcontroller.addNewProduct)
 
 server.listen(3400, () => {
