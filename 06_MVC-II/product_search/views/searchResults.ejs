@@ -1,0 +1,13 @@
+<!-- Write your code here to render the search data -->
+
+<div class="container">
+    <h2>Search Results</h2>
+    <ul>
+        <% searchResults.forEach((result) => { %>
+        <li>
+            <img src="<%= result.image %>" alt="<%= result.name %>">
+            <%= result.name %>
+        </li>
+        <% }); %>
+    </ul>
+</div>
